@@ -1,0 +1,113 @@
+/* EditMember Form Styles */
+.edit-member-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.edit-member-input.error {
+  border: 2px solid #dc3545;
+}
+
+.edit-member-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 400px;
+  max-width: 90vw;
+}
+
+/* Modal Title */
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* Form Field Container */
+.form-field {
+  margin-bottom: 20px;
+}
+
+/* Last Form Field (with extra spacing) */
+.form-field-last {
+  margin-bottom: 30px;
+}
+
+/* Form Label */
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Error Message */
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Base Button Styles */
+.modal-button {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Cancel Button */
+.modal-button-cancel {
+  background-color: #6c757d;
+}
+
+.modal-button-cancel:hover {
+  background-color: #5a6268;
+}
+
+/* Save Button */
+.modal-button-save {
+  background-color: #28a745;
+}
+
+.modal-button-save:hover {
+  background-color: #218838;
+}
