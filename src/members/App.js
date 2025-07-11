@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
+import './members.css';
 import Header from './Header';
 import SearchMember from './SearchMembers';
 import AddMember from './AddMember';
 import Content from './Content';
 import Footer from './Footer';
 import EditMember from './EditMember';
-import apiRequest from './apiRequest';
-import './index.css';
+import apiRequest from '../util/apiRequest';
 
 function App() {
-  const API_URL = 'http://localhost:3500/members';
+  const API_URL_MEMBERS = 'http://localhost:3500/members';
 
   const [members, setMembers] = useState([]);
   const [newMember, setNewMember] = useState('');
@@ -21,11 +21,12 @@ function App() {
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const response = await fetch(API_URL);
+        const response = await fetch(API_URL_MEMBERS);
         if (!response.ok) throw Error('Did not receive expected data');
         const result = await response.json();
         setMembers(result);
         setFetchError(null);
+        console.log('Members:', members);
       } catch (err) {
         setFetchError(err.message);
       } finally {
@@ -33,7 +34,6 @@ function App() {
       }
     }
 
-    // setTimeout(() => fetchMembers(), 2000);
     fetchMembers();
   }, [])
 
@@ -42,7 +42,7 @@ function App() {
       ? JSON.stringify(Number(members[members.length - 1].id) + 1)
       : "1";
 
-    const myNewMember = { id, checked: false, name: member };
+    const myNewMember = { id, name: member };
     const listMembers = [...members, myNewMember];
     setMembers(listMembers);
 
@@ -53,24 +53,7 @@ function App() {
       },
       body: JSON.stringify(myNewMember)
     }
-    const result = await apiRequest(API_URL, postOptions);
-    if (result) setFetchError(result);
-  }
-
-  const handleCheck = async (id) => {
-    const listMembers = members.map((member) => member.id === id ? { ...member, checked: !member.checked } : member);
-    setMembers(listMembers);
-
-    const myMember = listMembers.filter((member) => member.id === id);
-    const updateOptions = {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ checked: myMember[0].checked })
-    };
-    const reqUrl = `${API_URL}/${id}`;
-    const result = await apiRequest(reqUrl, updateOptions);
+    const result = await apiRequest(API_URL_MEMBERS, postOptions);
     if (result) setFetchError(result);
   }
 
@@ -79,7 +62,7 @@ function App() {
     setMembers(listMembers);
 
     const deleteOptions = { method: 'DELETE' };
-    const reqUrl = `${API_URL}/${id}`;
+    const reqUrl = `${API_URL_MEMBERS}/${id}`;
     const result = await apiRequest(reqUrl, deleteOptions);
     if (result) setFetchError(result);
   }
@@ -102,7 +85,7 @@ function App() {
       },
       body: JSON.stringify(updatedMember)
     };
-    const reqUrl = `${API_URL}/${updatedMember.id}`;
+    const reqUrl = `${API_URL_MEMBERS}/${updatedMember.id}`;
     const result = await apiRequest(reqUrl, updateOptions);
     if (result) setFetchError(result);
   }
@@ -138,7 +121,6 @@ function App() {
         {fetchError && <p style={{ color: "red" }}>{`Error: ${fetchError}`}</p>}
         {!fetchError && !isLoading && <Content
           members={members.filter(member => ((member.name).toLowerCase()).includes(search.toLowerCase()))}
-          handleCheck={handleCheck}
           handleDelete={handleDelete}
           handleEdit={handleEdit}
         />}

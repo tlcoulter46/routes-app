@@ -1,0 +1,160 @@
+{
+  "teams": [
+    {
+      "team": 1,
+      "players": [
+        {
+          "name": "Player 1",
+          "handicap": "8"
+        },
+        {
+          "name": "Player 15",
+          "handicap": "4"
+        }
+      ]
+    },
+    {
+      "team": 2,
+      "players": [
+        {
+          "name": "Bill Shepard",
+          "handicap": "9"
+        },
+        {
+          "name": "Doug Korbel",
+          "handicap": "10"
+        }
+      ]
+    },
+    {
+      "team": 3,
+      "players": [
+        {
+          "name": "Player 2",
+          "handicap": "15"
+        },
+        {
+          "name": "Player 14",
+          "handicap": "25"
+        }
+      ]
+    },
+    {
+      "team": 4,
+      "players": [
+        {
+          "name": "Player 3",
+          "handicap": "22"
+        },
+        {
+          "name": "Player 13",
+          "handicap": "13"
+        }
+      ]
+    },
+    {
+      "team": 5,
+      "players": [
+        {
+          "name": "Player 4",
+          "handicap": "6"
+        },
+        {
+          "name": "Player 12",
+          "handicap": "7"
+        }
+      ]
+    },
+    {
+      "team": 6,
+      "players": [
+        {
+          "name": "Player 5",
+          "handicap": "18"
+        },
+        {
+          "name": "Player 11",
+          "handicap": "16"
+        }
+      ]
+    },
+    {
+      "team": 7,
+      "players": [
+        {
+          "name": "Player 10",
+          "handicap": "3"
+        },
+        {
+          "name": "Player 16",
+          "handicap": "17"
+        }
+      ]
+    },
+    {
+      "team": 8,
+      "players": [
+        {
+          "name": "Player 9",
+          "handicap": "20"
+        },
+        {
+          "name": "Player 17",
+          "handicap": "10"
+        }
+      ]
+    },
+    {
+      "team": 9,
+      "players": [
+        {
+          "name": "Player 8",
+          "handicap": "14"
+        },
+        {
+          "name": "Player 18",
+          "handicap": "21"
+        }
+      ]
+    },
+    {
+      "team": 10,
+      "players": [
+        {
+          "name": "Player 7",
+          "handicap": "9"
+        },
+        {
+          "name": "Player 19",
+          "handicap": "5"
+        }
+      ]
+    },
+    {
+      "team": 11,
+      "players": [
+        {
+          "name": "Player 6",
+          "handicap": "11"
+        },
+        {
+          "name": "Player 20",
+          "handicap": "12"
+        }
+      ]
+    },
+    {
+      "team": 12,
+      "players": [
+        {
+          "name": "Tim Coulter",
+          "handicap": "19"
+        },
+        {
+          "name": "Gary Bounderant",
+          "handicap": "12"
+        }
+      ]
+    }
+  ]
+}

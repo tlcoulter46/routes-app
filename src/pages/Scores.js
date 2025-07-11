@@ -3,9 +3,7 @@ import App from '../scores/App';
 
 const Scores = () => {
   return (
-    <div>
-      <App />
-    </div>
+    <App />
   );
 };
 

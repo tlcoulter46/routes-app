@@ -93,9 +93,9 @@ ul li::before {
   margin-right: 0.5rem;
 }
 
-.member input[type="checkbox"]:focus+label {
+/* .member input[type="checkbox"]:focus+label {
   text-decoration: underline;
-}
+} */
 
 .member>label {
   font-size: 1.0rem;
@@ -120,10 +120,12 @@ ul li::before {
 .addForm {
   width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   margin: 0.5rem 0 0;
   padding: 0 0.5rem 0.25rem;
   border-bottom: 1px solid #eee;
+  flex-wrap: nowrap;
 }
 
 .addForm label {
@@ -143,20 +145,22 @@ ul li::before {
 }
 
 button {
-  height: 32px;
-  min-width: 32px;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
   border-radius: 0.25rem;
   padding: 0.5rem;
   font-size: 0.75rem;
-  background-color: white;
-  color: mediumblue;
+  background-color: green;
+  color: white;
   cursor: pointer;
 }
 
+
 button:focus,
 button:hover {
-  color: white;
-  background-color: rgb(7, 209, 7);
+  color: black;
+  background-color: lightgreen;
   outline: none;
 }
 

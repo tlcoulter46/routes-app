@@ -1,12 +1,11 @@
 import MemberList from './ListMembers';
 
-const Content = ({ members, handleCheck, handleDelete, handleEdit }) => {
+const Content = ({ members, handleDelete, handleEdit }) => {
   return (
     <>
       {members.length ? (
         <MemberList
           members={members}
-          handleCheck={handleCheck}
           handleDelete={handleDelete}
           handleEdit={handleEdit}
         />

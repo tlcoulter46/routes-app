@@ -1,30 +1,26 @@
 import { useEffect, useState, useRef } from 'react';
+import './Home.css';
 
 const Home = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const leagueStartDay = useRef(new Date('07/08/2025'));
+  const currentTime = useRef(new Date());
+  const today = useRef(new Date());
   const [welcomeMessage, setWelcomeMessage] = useState('');
-  const leagueNameRef = useRef(''); // Initialize with default value
+  const [leagueNameRef, setLeagueNameRef] = useState('');
 
   useEffect(() => {
-    // Inline script for time updates
-    const timeInterval = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-
-    const month = new Date().getMonth();
-    console.log('Month value:', month);
-
     // Update the ref value based on month
-    if (month < 7) {
-      leagueNameRef.current = 'Hackers';
+    if (leagueStartDay.getDate < today.getDate) {
+      setLeagueNameRef('Hackers');
     } else {
-      leagueNameRef.current = 'Divots';
+      setLeagueNameRef('Divots');
     }
 
-    console.log('Updated leagueName:', leagueNameRef.current);
+    console.log('Updated leagueName:', leagueNameRef);
 
     // Inline script for dynamic welcome message
     const hour = new Date().getHours();
+
     let greeting;
     if (hour < 12) {
       greeting = 'Good Morning';
@@ -36,12 +32,12 @@ const Home = () => {
     setWelcomeMessage(`${greeting}, Golfer!`);
 
     // Inline script for console message
-    console.log(`Welcome to ${leagueNameRef.current} Golf League!`);
-    console.log('Current time:', new Date().toLocaleString());
+    // console.log(`Welcome to ${leagueNameRef} Golf League!`);
+    console.log(`Current time: ${today}`);
 
     // Cleanup interval on component unmount
-    return () => clearInterval(timeInterval);
-  }, []);
+    return () => clearInterval(0);
+  }, [leagueNameRef]);
 
   // Inline script function for button click
   const handleLeagueInfo = () => {
@@ -62,64 +58,45 @@ const Home = () => {
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-      <h1 style={{ textAlign: "center", color: '#2c5282' }}>
-        {`Welcome to the ${leagueNameRef.current} Golf League`}
+    <div className="home-container">
+      <h1 className="home-title">
+        {`Welcome to the ${leagueNameRef} Golf League`}
       </h1>
 
-      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-        <h2 style={{ color: '#38a169' }}>{welcomeMessage}</h2>
-        <p style={{ fontSize: '18px', color: '#666' }}>
-          Current Time: {currentTime.toLocaleTimeString()}
+      <div className="welcome-section">
+        <h2 className="welcome-message">{welcomeMessage}</h2>
+        <p className="current-time">
+          {`Current Time: ${currentTime.current.toLocaleTimeString()}`}
         </p>
       </div>
 
       <br />
-      <p style={{ textAlign: "center", fontSize: '20px', fontStyle: 'italic' }}>
-        Where {leagueNameRef.current} become Champions
+      <p className="tagline">
+        Where {leagueNameRef} become Champions
       </p>
       <br />
 
-      <p style={{ fontSize: '16px', lineHeight: '1.6' }}>
+      <p className="description">
         Our league is made up of avid golfers with different ages and golfing abilities.
       </p>
 
-      <div style={{ textAlign: 'center', marginTop: '30px' }}>
+      <div className="button-section">
         <button
           onClick={handleLeagueInfo}
-          style={{
-            backgroundColor: '#4299e1',
-            color: 'white',
-            padding: '12px 24px',
-            border: 'none',
-            borderRadius: '8px',
-            fontSize: '16px',
-            cursor: 'pointer',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-          }}
-          onMouseOver={(e) => e.target.style.backgroundColor = '#3182ce'}
-          onMouseOut={(e) => e.target.style.backgroundColor = '#4299e1'}
+          className="league-info-button"
         >
           Learn More About Our League
         </button>
       </div>
 
-      <div style={{
-        marginTop: '40px',
-        padding: '20px',
-        backgroundColor: '#f7fafc',
-        borderRadius: '8px',
-        border: '1px solid #e2e8f0'
-      }}>
-        <h3 style={{ color: '#2d3748', marginBottom: '15px' }}>League Highlights:</h3>
-        <ul style={{ textAlign: 'left', color: '#4a5568' }}>
+      <div className="highlights-section">
+        <h3 className="highlights-title">League Highlights:</h3>
+        <ul className="highlights-list">
           <li>Handicap system for fair competition</li>
           <li>Annual championship tournament</li>
           <li>Prizes and recognition for top performers</li>
         </ul>
       </div>
-
-      {/* Removed <script> tag and its dangerouslySetInnerHTML as React does not support it */}
     </div>
   );
 };

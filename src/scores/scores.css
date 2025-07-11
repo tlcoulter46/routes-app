@@ -137,8 +137,8 @@ button:hover {
 
 /* Line Label - Player name input */
 .line-label {
-  width: 110px;
-  min-width: 110px;
+  width: 150px;
+  min-width: 150px;
   height: 30px;
   background-color: white;
   color: black;
@@ -209,6 +209,7 @@ button:hover {
 }
 
 .score-submit-button:hover {
+  color: white;
   background-color: #0056b3;
 }
 
@@ -242,144 +243,6 @@ button:hover {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 6px;
-}
-
-/* Week Selection Styles */
-.week-selection-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  background-color: #f8f9fa;
-  border-bottom: 2px solid #e9ecef;
-  margin-bottom: 5px;
-}
-
-.week-select-label {
-  font-size: 18px;
-  font-weight: bold;
-  margin-right: 15px;
-  color: #495057;
-}
-
-.week-select-dropdown {
-  padding: 4px 16px;
-  font-size: 16px;
-  border: 2px solid #ced4da;
-  border-radius: 6px;
-  background-color: white;
-  cursor: pointer;
-  min-width: 50px;
-}
-
-.week-date-display {
-  margin-left: 20px;
-  font-size: 16px;
-  color: #6c757d;
-}
-
-/* Teams Display Styles */
-/* .teams-display-container {
-  padding: 0 20px;
-  margin-bottom: 20px;
-} */
-
-/* .all-teams-section {
-  background-color: #e8f5e8;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #4caf50;
-  margin-bottom: 15px;
-} */
-
-/* .all-teams-title {
-  margin: 0 0 10px 0;
-  color: #2e7d32;
-  font-size: 18px;
-} */
-
-/* .all-teams-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-} */
-
-/* .team-badge {
-  background-color: #4caf50;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: bold;
-} */
-
-.time-slots-section {
-  background-color: #fff3e0;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #ff9800;
-}
-
-.time-slots-title {
-  margin: 0 0 15px 0;
-  color: #ef6c00;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.time-slots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 12px;
-}
-
-.time-slot-card {
-  background-color: white;
-  padding: 12px;
-  border-radius: 8px;
-  border: 2px solid #ff9800;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.time-slot-header {
-  font-weight: bold;
-  color: #ef6c00;
-  font-size: 16px;
-  margin-bottom: 8px;
-  text-align: center;
-}
-
-.time-slot-matchup {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f5f5f5;
-  padding: 8px 12px;
-  border-radius: 6px;
-}
-
-.team-blue {
-  background-color: #2196f3;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.team-pink {
-  background-color: #e91e63;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.vs-text {
-  color: #666;
-  font-weight: bold;
-  font-size: 16px;
 }
 
 /* Loading State Styles */
@@ -446,35 +309,44 @@ button:hover {
   color: #666;
 }
 
-/* Team Display Styles */
-.team-display-container {
-  background-color: #e8f4fd;
-  border: 1px solid #b8daff;
-  border-radius: 8px;
-  padding: 15px;
+.game-info-container {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
+  padding: 15px;
+  background-color: white;
+  /* border: 1px solid #e0e0e0; */
+  border-radius: 1px;
 }
 
-.team-message {
-  font-size: 16px;
-  font-weight: bold;
-  color: #0c5460;
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #d1ecf1;
-  border-radius: 4px;
-  border-left: 4px solid #17a2b8;
+.info-row {
+  display: flex;
+  flex-direction: row;
+
 }
 
-.team-details {
-  font-size: 14px;
-  color: #495057;
-  padding: 8px;
-  background-color: #f8f9fa;
-  border-radius: 4px;
-  border: 1px solid #dee2e6;
+.info-field {
+  display: flex;
+  color: black;
+  padding-right: 4px;
+}
+
+.week-select {
+  width: 40px;
+}
+
+.flight-input {
+  width: 30px;
+}
+
+.team-pairs-input {
+  width: 60px;
 }
 
 .team-details strong {
   color: #212529;
 }
+
+/* missing definitions
+score-entry-container 
+*/

@@ -6,7 +6,9 @@
   border-radius: 4px;
   font-size: 16px;
   box-sizing: border-box;
+  flex: 1;
 }
+
 
 .edit-member-input.error {
   border: 2px solid #dc3545;
@@ -16,6 +18,24 @@
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+
+/* Handicap Input Specific Styling */
+.edit-member-input[type="number"] {
+  width: 80px;
+  text-align: center;
+  flex: none;
+}
+
+.edit-member-input[type="number"]::-webkit-outer-spin-button,
+.edit-member-input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.edit-member-input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /* Modal Overlay */
@@ -46,39 +66,51 @@
 .modal-title {
   margin-top: 0;
   margin-bottom: 20px;
-  color: #333;
+  color: #333333;
   text-align: center;
 }
 
-/* Form Field Container */
-.form-field {
-  margin-bottom: 20px;
-}
-
-/* Last Form Field (with extra spacing) */
-.form-field-last {
-  margin-bottom: 30px;
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 /* Form Label */
 .form-label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0;
   font-weight: bold;
   color: #555;
+  min-width: 80px;
+  flex-shrink: 0;
 }
 
-/* Error Message */
-.error-message {
-  color: #dc3545;
-  font-size: 14px;
+/* Form Field Container */
+.form-field {
+  margin-bottom: 1px;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+/* Last Form Field (with extra spacing) */
+.form-field-last {
+  margin-bottom: 1px;
+  display: flex;
+  align-items: center;
+  gap: 1px;
 }
 
 /* Button Container */
 .button-container {
   display: flex;
   gap: 10px;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
 }
 
 /* Base Button Styles */
@@ -91,12 +123,13 @@
   font-size: 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  /* gap: 4px; */
 }
 
 /* Cancel Button */
 .modal-button-cancel {
   background-color: #6c757d;
+  min-width: 80px;
 }
 
 .modal-button-cancel:hover {
@@ -106,8 +139,19 @@
 /* Save Button */
 .modal-button-save {
   background-color: #28a745;
+  min-width: 80px;
 }
 
 .modal-button-save:hover {
   background-color: #218838;
+}
+
+/* Form Field Container for Handicap */
+.form-field-handicap {
+  margin-bottom: 20px;
+}
+
+.form-field-handicap .edit-member-input {
+  max-width: 100px;
+  margin: 0 auto;
 }

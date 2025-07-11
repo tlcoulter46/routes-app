@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Header = ({ playDay, a, b }) => {
+const Header = ({ season }) => {
   return (
     <header>
       <h2>Scores</h2>
-      <p>{playDay} Teams {a} vs {b}</p>
+      <p>{season}</p>
     </header>
   )
 }

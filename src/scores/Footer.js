@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Footer = () => {
+const Footer = ({ week, teeTime }) => {
   const year = new Date().getFullYear();
 
   return (
     <footer>
-      <p>Copyright &copy; {year}</p>
+      {/* <p>Copyright &copy; {year}</p> */}
     </footer>
   )
 }
