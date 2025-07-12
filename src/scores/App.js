@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from "react-dom/client";
 
 import "./scores.css";
 import Header from "./Header";
@@ -9,7 +8,6 @@ import fetchData from '../util/fetchData';
 
 function App() {
   // API URLs
-  const API_URL_MEMBERS = 'http://localhost:3500/members';
   const API_URL_SCHEDULE = 'http://localhost:3600/schedule';
   const API_URL_TEAMS = 'http://localhost:3700/teams';
   const API_URL_SCORES = 'http://localhost:3800/0';
@@ -17,14 +15,13 @@ function App() {
   // Global state
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [members, setMembers] = useState([]);
+  // const [members, setMembers] = useState([]);
   const [schedule, setSchedule] = useState([]);
   const [season, setSeason] = useState('');
   const [teams, setTeams] = useState([]);
   const [scores, setScores] = useState([]);
   const [selectedWeek, setSelectedWeek] = useState(1);
-  const [time, setTime] = useState('1');
-  const [team, setTeam] = useState([]);
+  const [seletedTime, setSeletedTime] = useState(1);
 
   // Initialize 4 players with empty scores
   const [players, setPlayers] = useState([
@@ -36,41 +33,38 @@ function App() {
 
   const teeTimes = ["4:00", "4:10", "4:20", "4:30", "4:40", "4:50"];
 
-  // Load initial data
+  // Consolidated loading data files
   useEffect(() => {
-    console.log(`useEffect #1`)
+    console.log(`useEffect - Loading all data`)
     setFetchError(null);
+    setIsLoading(true);
 
-    // Handle members data
-    const fetchMembers = async () => {
+    const fetchAllData = async () => {
       try {
-        const response = await fetchData(API_URL_MEMBERS);
-        if (!response.ok) throw Error('Did not receive expected data');
-        const result = await response.json();
-        setMembers(result);
-        setFetchError(null);
-        console.log('Members:', members);
-      } catch (err) {
-      } finally {
-        setIsLoading(false);
-      }
-    }
+        // Fetch all data concurrently using Promise.all
+        const [scheduleResponse, scoresResponse, teamsResponse] = await Promise.all([
+          fetchData(API_URL_SCHEDULE),
+          fetchData(API_URL_SCORES),
+          fetchData(API_URL_TEAMS)
+        ]);
 
-    fetchMembers();
-  }, []);
+        // Check if all responses are ok
+        if (!scheduleResponse.ok) throw Error('Failed to fetch schedule data');
+        if (!scoresResponse.ok) throw Error('Failed to fetch scores data');
+        if (!teamsResponse.ok) throw Error('Failed to fetch teams data');
 
-  useEffect(() => {
-    console.log(`useEffect #2`)
-    setFetchError(null);
+        // Parse all JSON responses
+        const [scheduleResult, scoresResult, teamsResult] = await Promise.all([
+          scheduleResponse.json(),
+          scoresResponse.json(),
+          teamsResponse.json()
+        ]);
 
-    // Handle schedule data
-    const fetchSchedule = async () => {
-      try {
-        const response = await fetchData(API_URL_SCHEDULE);
-        if (!response.ok) throw Error('Did not receive expected data');
-        const result = await response.json();
-        setSchedule(result);
-        console.log('Schedule:', schedule);
+        // Update all state
+        setSchedule(scheduleResult);
+        setScores(scoresResult);
+        setTeams(teamsResult);
+
         setFetchError(null);
       } catch (err) {
         setFetchError(err.message);
@@ -80,94 +74,10 @@ function App() {
       }
     }
 
-    fetchSchedule();
-    // Dependency array for useEffect
+    fetchAllData();
   }, []);
 
-  useEffect(() => {
-    console.log(`useEffect #3`)
-    setFetchError(null);
-
-    // Handle scores data
-    const fetchScores = async () => {
-      try {
-        const response = await fetchData(API_URL_SCORES);
-        const result = await response.json();
-        setScores(result);
-        setFetchError(null);
-      } catch (err) {
-        setFetchError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchScores();
-
-  }, []);
-
-  useEffect(() => {
-    console.log(`useEffect #4`)
-    setFetchError(null);
-
-    // Handle team data
-    const fetchTeams = async () => {
-      try {
-        const response = await fetchData(API_URL_TEAMS);
-        if (!response.ok) throw Error('Did not receive expected data');
-        const result = await response.json();
-        setTeams(result);
-        console.log('teams:', teams);
-        setFetchError(null);
-      } catch (err) {
-        setFetchError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchTeams();
-
-  }, []);
-
-  // Update team pairs when week changes
-  useEffect(() => {
-    // console.log(`useEffect #5`);
-    // console.log(`Selected week: ${selectedWeek}`);
-    // console.log(`Week #3: ${schedule?.schedule?.weeks?.find(week => week.week === 3)}`);
-
-    if (schedule?.weeks && selectedWeek) {
-      // const currentWeek = schedule?.schedule?.weeks.find(week => week.week === selectedWeek);
-      // console.log(`Current week: ${currentWeek}`);
-      // if (currentWeek.team) {
-      //   setTeam(currentWeek.team.join(' vs '));
-      //   console.log(`Current Week Pair: ${currentWeek.team}`)
-      // } else {
-      //   setTeam('Team pairs not available');
-      //   console.log(`Current Week Pair: ${currentWeek?.team}`)
-      // }
-    }
-  }, [schedule, selectedWeek]);
-
-  // Helper functions
-  const getCurrentWeekData = async (weekNumber) => {
-    try {
-      // const scheduleData = await fetchData(API_URL_SCHEDULE);
-      // const value = scheduleData?.weeks.week[selectedWeek]?.time[4].teams[0];
-      // const value = scheduleData?.weeks?.week[selectedWeek];
-
-      const currentWeek = schedule?.schedule?.weeks?.find(
-        week => week === selectedWeek
-      );
-      // console.log(`Week Number: ${weekNumber} `);
-      // return currentWeek || null;
-      return 1;
-    } catch (error) {
-      console.error('Error fetching current week data:', error);
-      throw error;
-    }
-  };
-
+  // Helper function to clear scores area
   const handlePlayersName = (newPlayers) => {
     if (newPlayers) {
       setPlayers([
@@ -178,25 +88,6 @@ function App() {
       ]);
 
       return true;
-    }
-  };
-
-  // Handler functions moved to top-level scope
-
-  // Refresh current week data
-  const refreshWeekData = async () => {
-    try {
-      setIsLoading(true);
-      setFetchError(null);
-
-      const freshScheduleData = await fetchData(API_URL_SCHEDULE);
-      setSchedule(freshScheduleData);
-      console.log('Week data refreshed successfully');
-    } catch (error) {
-      console.error('Error refreshing week data:', error);
-      setFetchError('Failed to refresh week data');
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -218,36 +109,33 @@ function App() {
 
   const handleTeeTimeChange = (e) => {
     const newTeeTime = parseInt(e.target.value);
-    setTime(newTeeTime);
-    console.log(time, " changed to ", newTeeTime);
+    console.log(seletedTime, " changed to ", newTeeTime);
+    setSeletedTime(newTeeTime);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Use context helper function to get fresh current week data
-      // const currentWeekData = await getCurrentWeekData(selectedWeek);
-      // console.log('Current week data: ', currentWeekData);
+      // set index for '0' based data
+      let weekIndex = selectedWeek - 1;
+      let timeIndex = seletedTime - 1;
 
-      console.log(`week: ${selectedWeek - 1}, time: ${time - 1}`)
-      const value = schedule.weeks[selectedWeek - 1].times[time - 1].team[0];
+      console.log(`week: ${weekIndex}, time: ${timeIndex}`)
+      const value = schedule.weeks[weekIndex].times[timeIndex].team[0];
       console.log("value: ", value);
-      const newValue = schedule.weeks[selectedWeek - 1].times[time - 1].team[1];
+      const newValue = schedule.weeks[weekIndex].times[timeIndex].team[1];
       console.log("new value: ", newValue);
 
       let resultText = `Week ${selectedWeek} Scorecard Results: \n`;
-      // if (currentWeekData) {
-      // resultText += `Date: ${currentWeekData.date} \n`;
+
       const now = new Date();
       resultText += `Date: ${now.toDateString()} \n`;
-      // }
-      if (time) {
-        resultText += `Tee Time: ${teeTimes[time - 1]} \n`;
+
+      if (seletedTime) {
+        resultText += `Tee Time: ${teeTimes[timeIndex]} \n`;
       }
-      if (team) {
-        resultText += `Team Pairs: ${team} \n`;
-      }
+
       resultText += '\n';
 
       players?.forEach((player, index) => {
@@ -256,7 +144,6 @@ function App() {
         resultText += `Player ${index + 1}: ${player?.name || 'Unknown'} \n`;
         resultText += `Scores: ${integers.join(", ")} \n`;
         resultText += `Total: ${total} \n\n`;
-        // resultText += `Value: ${value} \n\n`;
       });
 
       alert(resultText);
@@ -284,96 +171,39 @@ function App() {
 
   // NEW: Load Card function with stored data
   const handleLoadCard = () => {
-    // ajust the week and time
-    const modWeek = selectedWeek - 1;
-    const modTime = time - 1;
-    const opponents = [
-      schedule.weeks[modWeek].times[modTime].team[0],
-      schedule.weeks[modWeek].times[modTime].team[1]
+    // ajust the week and seletedTime
+    const weekIndex = selectedWeek - 1;
+    const timeIndex = seletedTime - 1;
+    console.log("selected Week:", weekIndex, " timeIndex: ", timeIndex);
+
+    // assign match opponents
+    const matchPlayers = [
+      schedule.weeks[weekIndex].times[timeIndex].team[0],
+      schedule.weeks[weekIndex].times[timeIndex].team[1]
     ];
 
-    console.log("Select week:", modWeek);
+    console.log("Select week:", weekIndex);
     console.log("Schedule:", schedule);
-    console.log("Weeks:", schedule.weeks[modWeek]);
-    console.log("Times:", schedule.weeks[modWeek].times[modTime]);
-    console.log("Team:", schedule.weeks[modWeek].times[modTime].team[0]);
+    console.log("Weeks:", schedule.weeks[weekIndex]);
+    console.log("Times:", schedule.weeks[weekIndex].times[timeIndex]);
+    console.log("Team:", schedule.weeks[weekIndex].times[timeIndex].team[0]);
 
-    console.log("selected Week:", modWeek, " modTime: ", modTime);
-    const a = opponents[0] - 1;
-    const b = opponents[1] - 1;
-    console.log("opponent a:", teams[a], "opponent b", teams[b]);
-    // console.log("Team player 1 handicap", teams[a].players[0].handicap);
+    const a = matchPlayers[0] - 1;
+    const b = matchPlayers[1] - 1;
+    console.log("Player 1:", teams[a], "Player 2", teams[b]);
 
+    // display the team opponents
     document.getElementById("opponents").innerHTML = `${a + 1} vs ${b + 1}`;
 
     const newPlayers = [];
-    newPlayers[0] = (teams[a].players[0].name);
-    newPlayers[2] = (teams[b].players[0].name);
-    newPlayers[1] = (teams[a].players[1].name);
-    newPlayers[3] = (teams[b].players[1].name);
+    newPlayers[0] = formatPlayerName(teams[a].players[0].name);
+    newPlayers[2] = formatPlayerName(teams[b].players[0].name);
+    newPlayers[1] = formatPlayerName(teams[a].players[1].name);
+    newPlayers[3] = formatPlayerName(teams[b].players[1].name);
 
     handlePlayersName(newPlayers);
-    console.log(`Scorecard loaded ${newPlayers} `);
+    console.log(`Scorecard loaded ${newPlayers}`);
   };
-
-  // Show loading state
-  if (isLoading) {
-    return (
-      <>
-        <Header />
-        <main>
-          <div className="score-entry-container">
-            <div className="loading-container">
-              <p>Loading players and schedule...</p>
-              <div className="loading-subtitle">
-                Please wait while we fetch the data...
-              </div>
-            </div>
-          </div>
-        </main>
-        <Footer />
-      </>
-    );
-  }
-
-  // Show error state
-  if (fetchError) {
-    return (
-      <>
-        <Header />
-        <main>
-          <div className="score-entry-container">
-            <div className="error-container">
-              <h3 className="error-title">⚠️ Error Loading Data</h3>
-              <p className="error-message">{fetchError}</p>
-              <div className="error-buttons">
-                <button
-                  onClick={refreshWeekData}
-                  className="error-retry-button"
-                >
-                  🔄 Retry
-                </button>
-                <button
-                  onClick={() => setFetchError(null)}
-                  className="error-continue-button"
-                >
-                  Continue Anyway
-                </button>
-              </div>
-              <div className="error-help-text">
-                "Check that your JSON servers are running on ports:" <br />
-                "3500 - Members Data" <br />
-                "3600 - Schedule Data" <br />
-                "3700 - Teams Data" <br />
-                "3800 - Scores Data"
-              </div>
-            </div>
-          </div>
-        </main>
-        <Footer />
-      </>
-    );
-  }
 
   // Main app render
   return (
@@ -407,7 +237,7 @@ function App() {
                 type="number"
                 min="1"
                 max="6"
-                value={time}
+                value={seletedTime}
                 onChange={handleTeeTimeChange}
                 className="flight-input"
               />
