@@ -176,9 +176,6 @@ function App() {
   if (isLoading) return <div>Loading...</div>;
   if (fetchError) return <div>Error: {fetchError}</div>;
 
-  // Remove this line - it was causing the error
-  // const [clearTrigger, setClearTrigger] = useState(false);
-
   function clearScores() {
     console.log("clearScores");
 
@@ -231,7 +228,7 @@ function App() {
 
       <EditScores
         players={players}
-        setPlayers={setPlayers}
+        setPlayers={players}
         clearTrigger={clearTrigger}
       />
 
