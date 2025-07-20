@@ -48,12 +48,10 @@
 .league-info-button {
   background-color: #4299e1;
   color: white;
-  padding: 12px 24px;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.2s ease;
   white-space: nowrap;
   min-width: 250px;
@@ -63,6 +61,7 @@
 }
 
 .league-info-button:hover {
+  color: white;
   background-color: #3182ce;
 }
 

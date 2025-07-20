@@ -6,9 +6,7 @@ const EditMember = ({ member, onSave, onCancel }) => {
   const [formData, setFormData] = useState({
     name: member.name || '',
     phone: member.phone || '',
-    email: member.email || '',
-    team: member.team || '',
-    handicap: member.handicap || ''
+    email: member.email || ''
   });
 
   const [errors, setErrors] = useState({});
@@ -43,10 +41,6 @@ const EditMember = ({ member, onSave, onCancel }) => {
     if (formData.email && !isValidEmail(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
-
-    // if (formData.handicap && !isValidHandicap(formData.handicap)) {
-    //   newErrors.phone = 'Please enter a valid handicap';
-    // }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -126,42 +120,6 @@ const EditMember = ({ member, onSave, onCancel }) => {
                 onChange={handleChange}
                 className="edit-member-input"
                 placeholder="name@email.com"
-              />
-            </div>
-          </div>
-
-          <div className="form-field">
-            <label className="form-label">
-              Team
-            </label>
-            <div className="form-container">
-              <input
-                type="number"
-                name="team"
-                value={formData.team}
-                onChange={handleChange}
-                className="edit-member-input"
-                placeholder="Team name"
-                min="1"
-                max="12"
-                step="1"
-              />
-            </div>
-
-            <label className="form-label">
-              Handicap
-            </label>
-            <div className="form-container">
-              <input
-                type="number"
-                name="handicap"
-                value={formData.handicap || ''}
-                onChange={handleChange}
-                className="edit-member-input"
-                placeholder="0"
-                min="-10"
-                max="54"
-                step="1"
               />
             </div>
           </div>

@@ -22,7 +22,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
   width: 100%;
   max-width: 500px;
   border: 1px solid mediumblue;
@@ -46,7 +46,14 @@ main {
   flex-grow: 1;
   justify-content: flex-start;
   align-items: center;
-  overflow-y: auto;
+  overflow-y: scroll;
+}
+
+.main-content {
+  padding-bottom: 60px;
+  /* Footer height + some extra space */
+  min-height: 70vh;
+  /* Full height minus footer */
 }
 
 footer {

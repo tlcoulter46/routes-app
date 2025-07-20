@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import './Home.css';
+import './home.css';
 
 const Home = () => {
   const leagueStartDay = useRef(new Date('07/08/2025'));
@@ -30,10 +30,6 @@ const Home = () => {
       greeting = 'Good Evening';
     }
     setWelcomeMessage(`${greeting}, Golfer!`);
-
-    // Inline script for console message
-    // console.log(`Welcome to ${leagueNameRef} Golf League!`);
-    console.log(`Current time: ${today}`);
 
     // Cleanup interval on component unmount
     return () => clearInterval(0);
@@ -77,7 +73,7 @@ const Home = () => {
       <br />
 
       <p className="description">
-        Our league is made up of avid golfers with different ages and golfing abilities.
+        Our league is made up of avid golfers from different ages and golfing abilities.
       </p>
 
       <div className="button-section">

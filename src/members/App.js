@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import './members.css';
-import Header from './Header';
 import SearchMember from './SearchMembers';
 import AddMember from './AddMember';
 import Content from './Content';
-import Footer from './Footer';
 import EditMember from './EditMember';
+import fetchData from '../util/fetchData';
 import apiRequest from '../util/apiRequest';
 
 function App() {
@@ -19,30 +18,32 @@ function App() {
   const [editingMember, setEditingMember] = useState(null);
 
   useEffect(() => {
-    const fetchMembers = async () => {
+    const fetchData = async () => {
       try {
         const response = await fetch(API_URL_MEMBERS);
-        if (!response.ok) throw Error('Did not receive expected data');
+        if (!response.ok) throw Error('Failed to fetch members data');
         const result = await response.json();
         setMembers(result);
         setFetchError(null);
         console.log('Members:', members);
       } catch (err) {
         setFetchError(err.message);
+        console.log('err.message:', err.message);
       } finally {
         setIsLoading(false);
       }
     }
 
-    fetchMembers();
+    fetchData();
   }, [])
 
-  const addMember = async (member) => {
-    const id = members.length
-      ? JSON.stringify(Number(members[members.length - 1].id) + 1)
-      : "1";
+  const generateMemberId = () => {
+    return Math.random().toString(16).substring(2, 6);
+  }
 
-    const myNewMember = { id, name: member };
+  const addMember = async (member) => {
+    const id = generateMemberId();
+    const myNewMember = { id, name: member, phone: "", email: "" };
     const listMembers = [...members, myNewMember];
     setMembers(listMembers);
 
@@ -103,8 +104,6 @@ function App() {
 
   return (
     <div className="App">
-      <Header title="Members" />
-
       <AddMember
         newMember={newMember}
         setNewMember={setNewMember}
@@ -119,14 +118,13 @@ function App() {
       <main>
         {isLoading && <p>Loading Members...</p>}
         {fetchError && <p style={{ color: "red" }}>{`Error: ${fetchError}`}</p>}
-        {!fetchError && !isLoading && <Content
-          members={members.filter(member => ((member.name).toLowerCase()).includes(search.toLowerCase()))}
-          handleDelete={handleDelete}
-          handleEdit={handleEdit}
-        />}
+        {!fetchError && !isLoading &&
+          <Content
+            members={members.filter(member => ((member.name).toLowerCase()).includes(search.toLowerCase()))}
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
+          />}
       </main>
-
-      <Footer length={members.length} />
 
       {editingMember && (
         <EditMember
