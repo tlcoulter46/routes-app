@@ -79,16 +79,6 @@ function App() {
     fetchAllData();
   }, []);
 
-  const handleScoreChange = (playerIndex, holeIndex, value) => {
-    const val = value;
-    console.log("value: ", value);
-    if (/^\d*$/.test(val) && val.length <= 2) {
-      const newPlayers = [...players];
-      newPlayers[playerIndex].scores[holeIndex] = val;
-      setPlayers(newPlayers);
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -241,7 +231,7 @@ function App() {
 
       <EditScores
         players={players}
-        handleScoreChange={handleScoreChange}
+        setPlayers={setPlayers}
         clearTrigger={clearTrigger}
       />
 

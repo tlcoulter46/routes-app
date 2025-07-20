@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./scores.css";
 import { HiH3 } from 'react-icons/hi2';
 
-const EditScores = ({ players, handleScoreChange, clearTrigger }) => {
+const EditScores = ({ players, setPlayers, clearTrigger }) => {
   // Par values for holes 1-9
   const parValues = [4, 5, 4, 3, 4, 5, 4, 3, 4];
   const totalPar = parValues.reduce((sum, par) => sum + par, 0);
@@ -32,46 +32,58 @@ const EditScores = ({ players, handleScoreChange, clearTrigger }) => {
 
   };
 
+  const handleScoreChange = (playerIndex, holeIndex, value) => {
+    const val = value;
+    console.log("value: ", value);
+    if (/^\d*$/.test(val) && val.length <= 2) {
+      const newPlayers = [...players];
+      newPlayers[playerIndex].scores[holeIndex] = val;
+      setPlayers(newPlayers);
+    }
+  };
+
   return (
-    <div className="scorecard">
-      <h2 style={{ fontStyle: 'italic' }}>Foothills Championship Course</h2>
-      <table className="scorecard-table">
-        <thead>
-          <tr>
-            <th>Hole</th>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(hole => <th key={hole}>{hole}</th>)}
-            <th>Total</th>
-          </tr>
-          <tr className="par-row">
-            <td className="player-name">Par</td>
-            {parValues.map((par, idx) => <td key={idx}>{par}</td>)}
-            <td>{totalPar}</td>
-          </tr>
-        </thead>
-        <tbody>
-          {scores.map((row, playerIdx) => {
-            const total = row.reduce((sum, val) => sum + (parseInt(val) || 0), 0);
-            return (
-              <tr key={playerIdx}>
-                <td className="player-name">{players[playerIdx].name}</td>
-                {row.map((score, holeIdx) => (
-                  <td key={holeIdx}>
-                    <input
-                      type="text"
-                      className="score-input"
-                      min="1"
-                      max="10"
-                      value={scores[playerIdx][holeIdx]}
-                      onChange={e => handleLocalScoreChange(playerIdx, holeIdx, e.target.value)}
-                    />
-                  </td>
-                ))}
-                <td>{total}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <div>
+      <div className="scorecard">
+        <h2 style={{ fontStyle: "italic" }}>Foothills Championship Course</h2>
+        <table className="scorecard-table">
+          <thead>
+            <tr>
+              <th>Hole</th>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(hole => <th key={hole}>{hole}</th>)}
+              <th>Total</th>
+            </tr>
+            <tr className="par-row">
+              <td className="player-name">Par</td>
+              {parValues.map((par, idx) => <td key={idx}>{par}</td>)}
+              <td>{totalPar}</td>
+            </tr>
+          </thead>
+          <tbody>
+            {scores.map((row, playerIdx) => {
+              const total = row.reduce((sum, val) => sum + (parseInt(val) || 0), 0);
+              return (
+                <tr key={playerIdx}>
+                  <td className="player-name">{players[playerIdx].name}</td>
+                  {row.map((score, holeIdx) => (
+                    <td key={holeIdx}>
+                      <input
+                        type="text"
+                        className="score-input"
+                        min="1"
+                        max="10"
+                        value={scores[playerIdx][holeIdx]}
+                        onChange={e => handleLocalScoreChange(playerIdx, holeIdx, e.target.value)}
+                      />
+                    </td>
+                  ))}
+                  <td>{total}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
