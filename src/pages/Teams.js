@@ -1,5 +1,10 @@
+import React from 'react';
+import App from '../teams/App';
+
 const Teams = () => {
-  return <h1>Teams</h1>;
+  return (
+    <App />
+  );
 };
 
 export default Teams;

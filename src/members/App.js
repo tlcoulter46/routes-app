@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import './members.css';
-import SearchMember from './SearchMembers';
+import SearchMembers from './SearchMembers';
 import AddMember from './AddMember';
-import Content from './Content';
+import ListMembers from './ListMembers';
 import EditMember from './EditMember';
-import fetchData from '../util/fetchData';
 import apiRequest from '../util/apiRequest';
+import Header from '../util/Header';
 
 function App() {
   const API_URL_MEMBERS = 'http://localhost:3500/members';
@@ -15,6 +15,7 @@ function App() {
   const [search, setSearch] = useState('');
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
   const [editingMember, setEditingMember] = useState(null);
 
   useEffect(() => {
@@ -70,14 +71,17 @@ function App() {
 
   const handleEdit = (member) => {
     setEditingMember(member);
+    setIsEditing(true);
   }
 
   const handleSaveEdit = async (updatedMember) => {
     const listMembers = members.map((member) =>
       member.id === updatedMember.id ? updatedMember : member
     );
+
     setMembers(listMembers);
     setEditingMember(null);
+    setIsEditing(false);
 
     const updateOptions = {
       method: 'PUT',
@@ -93,6 +97,7 @@ function App() {
 
   const handleCancelEdit = () => {
     setEditingMember(null);
+    setIsEditing(false);
   }
 
   const handleSubmit = (e) => {
@@ -104,13 +109,15 @@ function App() {
 
   return (
     <div className="App">
+      <Header title="Members" />
+
       <AddMember
         newMember={newMember}
         setNewMember={setNewMember}
         handleSubmit={handleSubmit}
       />
 
-      <SearchMember
+      <SearchMembers
         search={search}
         setSearch={setSearch}
       />
@@ -119,14 +126,14 @@ function App() {
         {isLoading && <p>Loading Members...</p>}
         {fetchError && <p style={{ color: "red" }}>{`Error: ${fetchError}`}</p>}
         {!fetchError && !isLoading &&
-          <Content
+          <ListMembers
             members={members.filter(member => ((member.name).toLowerCase()).includes(search.toLowerCase()))}
-            handleDelete={handleDelete}
             handleEdit={handleEdit}
+            handleDelete={handleDelete}
           />}
       </main>
 
-      {editingMember && (
+      {isEditing && (
         <EditMember
           member={editingMember}
           onSave={handleSaveEdit}

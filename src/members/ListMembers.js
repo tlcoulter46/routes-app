@@ -1,14 +1,13 @@
-import LinePlayer from './LineMember';
+import LineMember from './LineMember';
 
-const MemberList = ({ members, handleDelete, handleEdit }) => {
+const MemberList = ({ members, handleEdit, handleDelete }) => {
   return (
-    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+    <ul style={{ listStyle: 'none', padding: '0 0.25rem 0.25rem' }}>
       {members.map((member) => (
-        <LinePlayer
-          key={member.id}
+        <LineMember
           member={member}
-          handleDelete={handleDelete}
           handleEdit={handleEdit}
+          handleDelete={handleDelete}
         />
       ))}
     </ul>

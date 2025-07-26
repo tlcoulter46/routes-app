@@ -29,7 +29,6 @@ const EditScores = ({ players, setPlayers, clearTrigger }) => {
     } else {
       alert(`Try again: ${value} exceeds limit ${parValues[holeIdx] * 2} (par x 2) `);
     }
-
   };
 
   const handleScoreChange = (playerIndex, holeIndex, value) => {

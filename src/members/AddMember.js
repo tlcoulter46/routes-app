@@ -17,13 +17,10 @@ const AddMember = ({ newMember, setNewMember, handleSubmit }) => {
         value={newMember}
         onChange={(e) => setNewMember(e.target.value)}
       />
-      <button
-        type='submit'
-        aria-label='Add Member'
-        onClick={() => inputRef.current.focus()}
-      >
-        <FaPlus />
-      </button>
+      <i onClick={handleSubmit}
+        className="fa fa-plus-square"
+        style={{ fontSize: '2rem', color: 'green', background: 'white' }}>
+      </i>
     </form>
   )
 }

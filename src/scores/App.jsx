@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./scores.css";
 import fetchData from '../util/fetchData';
-import apiRequest from '../util/apiRequest';
+import Header from '../util/Header';
 import GetWeekTeeTime from './GetWeekTeeTime';
 import EditScores from './EditScores';
 import ActionButtons from './ActionButtons';
@@ -18,12 +18,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [members, setMembers] = useState([]);
   const [schedule, setSchedule] = useState([]);
-  const [season, setSeason] = useState('');
   const [teams, setTeams] = useState([]);
   const [scores, setScores] = useState([]);
   const [selectedWeek, setSelectedWeek] = useState(1);
   const [selectedTime, setSelectedTime] = useState(1);
-  const [clearTrigger, setClearTrigger] = useState(false); // Move this here
+  const [clearTrigger, setClearTrigger] = useState(false);
 
   // Initialize 4 players with empty scores
   const [players, setPlayers] = useState([
@@ -32,8 +31,6 @@ function App() {
     { name: "", scores: Array(9).fill("") },
     { name: "", scores: Array(9).fill("") }
   ]);
-
-  const teeTimes = ["4:00", "4:10", "4:20", "4:30", "4:40", "4:50"];
 
   // Consolidated loading data files
   useEffect(() => {
@@ -79,6 +76,7 @@ function App() {
     fetchAllData();
   }, []);
 
+  // debug code for development - remove
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -100,6 +98,7 @@ function App() {
       resultText += `Date: ${now.toDateString()} \n`;
 
       if (selectedTime) {
+        const teeTimes = ["4:00", "4:10", "4:20", "4:30", "4:40", "4:50"];
         resultText += `Tee Time: ${teeTimes[timeIndex]} \n`;
       }
 
@@ -121,6 +120,7 @@ function App() {
     }
   };
 
+  // Todo: match opponents by handicap
   const handlePlayersName = (newPlayers) => {
     if (newPlayers) {
       setPlayers([
@@ -169,6 +169,7 @@ function App() {
       (formatPlayerName(player3.name) || 'Unknown'),
       (formatPlayerName(player4.name) || 'Unknown')
     ];
+
     console.log("Players:", newPlayers);
     handlePlayersName(newPlayers);
   };
@@ -176,7 +177,7 @@ function App() {
   if (isLoading) return <div>Loading...</div>;
   if (fetchError) return <div>Error: {fetchError}</div>;
 
-  function clearScores() {
+  const clearScores = () => {
     console.log("clearScores");
 
     // Reset players state (this will clear names and scores)
@@ -197,7 +198,7 @@ function App() {
     console.log("All data cleared");
   }
 
-  function submitScores() {
+  const submitScores = () => {
     const scores = {};
     for (let player = 1; player <= 4; player++) {
       const row = document.querySelectorAll(`tbody tr:nth-child(${player + 1}) .score-input`);
@@ -218,6 +219,8 @@ function App() {
 
   return (
     <>
+      <Header title="Scores" />
+
       <GetWeekTeeTime
         loadPlayerData={loadPlayerData}
         selectedWeek={selectedWeek}
@@ -228,7 +231,7 @@ function App() {
 
       <EditScores
         players={players}
-        setPlayers={players}
+        setPlayers={setPlayers}
         clearTrigger={clearTrigger}
       />
 

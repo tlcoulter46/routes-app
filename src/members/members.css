@@ -88,39 +88,14 @@ ul li::before {
   margin: 0;
 }
 
-.member input[type="checkbox"] {
-  text-align: center;
-  width: 2cm;
-  width: 24px;
-  min-width: 24px;
-  height: 2.5rem;
-  height: 24px;
-  min-height: 24px;
-  cursor: pointer;
-  margin-right: 0.5rem;
-}
-
-/* .member input[type="checkbox"]:focus+label {
-  text-decoration: underline;
-} */
-
 .member>label {
   font-size: 1.0rem;
   flex-grow: 1;
 }
 
-.member svg {
-  width: 24px;
-  min-width: 24px;
-  height: 36px;
-  font-size: 1.0rem;
-  color: steelblue;
-  cursor: pointer;
-}
-
-.member svg:focus,
-.member svg:hover {
-  color: red;
+.member:focus,
+.member:hover {
+  color: green;
   outline: none;
 }
 
@@ -151,24 +126,43 @@ ul li::before {
   outline: none;
 }
 
-button {
+.action-icon {
   width: 30px;
   height: 30px;
   min-width: 30px;
   border-radius: 0.25rem;
   padding: 0.5rem;
   font-size: 0.75rem;
-  background-color: green;
-  color: white;
   cursor: pointer;
+  outline: none;
 }
 
+.icon-container {
+  display: flex;
+  gap: 8px;
+  margin-left: auto
+}
 
-button:focus,
-button:hover {
+.edit-icon {
+  color: blue;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.edit-icon:focus,
+.edit-icon:hover {
+  color: rgb(111, 190, 216);
+}
+
+.trash-icon {
   color: black;
-  background-color: lightgreen;
-  outline: none;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.trash-icon:focus,
+.trash-icon:hover {
+  color: rgba(75, 74, 74, 0.329);
 }
 
 .searchForm {

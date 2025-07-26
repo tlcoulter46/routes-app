@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import "./scores.css";
 
 const GetWeekTeeTimes = ({ loadPlayerData, selectedWeek, setSelectedWeek, selectedTime, setSelectedTime }) => {
-  // const [week, setWeek] = useState(selectedWeek);
-  // const [teeTime, setTeeTime] = useState(selectedTime);
 
   return (
     <div className="header">
