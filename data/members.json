@@ -1,158 +1,188 @@
 {
   "members": [
     {
-      "id": "d11a",
-      "name": "Tim Coulter",
-      "phone": "",
-      "email": ""
-    },
-    {
       "id": "573f",
       "name": "Gary Bounderant",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "694f",
       "name": "Bill Shepard",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "8968",
       "name": "Doug Korbel",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "2a54",
       "name": "Fran Gulick",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "1a16",
       "name": "Greg Paulsen",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "aa1d",
       "name": "Jeff Rogers",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "d2eb",
       "name": "Matt Farwell",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "354c",
       "name": "Jim Harris",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "26cd",
       "name": "Jim Christensen",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "4417",
       "name": "Steve Wilson",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "90e3",
       "name": "Curt Bougie",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "473d",
       "name": "Bob Roth",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "98c3",
       "name": "Frank Rausch",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "072c",
       "name": "Kevin Johnson",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "01ca",
       "name": "Bob Eto",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "1bd6",
       "name": "Sam Ferris",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "ea4c",
       "name": "Pete Munoz",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "1d9b",
       "name": "Gary Hetzel",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "db84",
       "name": "Tom Nordeck",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "755a",
       "name": "John Grosso",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "7588",
       "name": "Jim Everhart",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "c24d",
       "name": "Jeff Vaughn",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "85a0",
       "name": "Jack Hansen",
       "phone": "",
-      "email": ""
+      "email": "",
+      "team": true
     },
     {
       "id": "9baf",
       "name": "Steve Bello",
       "phone": "",
+      "email": "",
+      "team": false
+    },
+    {
+      "id": "dc49",
+      "name": "Peter Pan",
+      "phone": "",
       "email": ""
     },
     {
-      "id": "544a",
+      "id": "cf2b",
       "name": "Joe Fudd",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "id": "7263",
+      "name": "Tim Coulter",
       "phone": "",
       "email": ""
     }
