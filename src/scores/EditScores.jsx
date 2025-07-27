@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import "./scores.css";
-import { HiH3 } from 'react-icons/hi2';
 
 const EditScores = ({ players, setPlayers, clearTrigger }) => {
   // Par values for holes 1-9
@@ -53,7 +52,7 @@ const EditScores = ({ players, setPlayers, clearTrigger }) => {
               <th>Total</th>
             </tr>
             <tr className="par-row">
-              <td className="player-name">Par</td>
+              <td>Par</td>
               {parValues.map((par, idx) => <td key={idx}>{par}</td>)}
               <td>{totalPar}</td>
             </tr>
@@ -63,7 +62,7 @@ const EditScores = ({ players, setPlayers, clearTrigger }) => {
               const total = row.reduce((sum, val) => sum + (parseInt(val) || 0), 0);
               return (
                 <tr key={playerIdx}>
-                  <td className="player-name">{players[playerIdx].name}</td>
+                  <td>{players[playerIdx].name}</td>
                   {row.map((score, holeIdx) => (
                     <td key={holeIdx}>
                       <input
@@ -73,6 +72,7 @@ const EditScores = ({ players, setPlayers, clearTrigger }) => {
                         max="10"
                         value={scores[playerIdx][holeIdx]}
                         onChange={e => handleLocalScoreChange(playerIdx, holeIdx, e.target.value)}
+                        readOnly={players[playerIdx].name === "Unknown"}
                       />
                     </td>
                   ))}

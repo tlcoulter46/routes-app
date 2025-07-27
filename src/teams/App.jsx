@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./teams.css";
 import fetchData from '../util/fetchData';
 import SelectTeam from './SelectTeam';
-import SearchMembers from './SearchMembers.jsx';
+import RemovePartner from './RemovePartner';
 import Header from '../util/Header';
 import TeamList from './TeamList';
 
@@ -20,7 +20,13 @@ function App() {
   const [search2, setSearch2] = useState('');
   const [staticName1, setStaticName1] = useState('');
   const [staticName2, setStaticName2] = useState('');
-  const [selectedTeam, setSelectedTeam] = useState('1');
+  const [selectedTeam, setSelectedTeam] = useState(() => {
+    return sessionStorage.getItem('selectedTeam') || '1';
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem('selectedTeam', selectedTeam);
+  }, [selectedTeam]);
 
   // Consolidated loading data files
   useEffect(() => {
@@ -111,21 +117,6 @@ function App() {
     }
   };
 
-  // Custom setters to clear other search when one is used
-  const handleSetSearch1 = (value) => {
-    setSearch1(value);
-    if (value !== '') {
-      setSearch2(''); // Clear search2 when search1 is used
-    }
-  };
-
-  const handleSetSearch2 = (value) => {
-    setSearch2(value);
-    if (value !== '') {
-      setSearch1(''); // Clear search1 when search2 is used
-    }
-  };
-
   const handleAdd = (member) => {
     // {id: '9baf', name: 'Steve Bello', phone: '', email: '', team: false}
     console.log("Member:", member);
@@ -150,12 +141,12 @@ function App() {
         setSelectedTeam={setSelectedTeam}
       />
 
-      <SearchMembers
+      <RemovePartner
         currentName={staticName1}
         handleRemove={handleRemove}
       />
 
-      <SearchMembers
+      <RemovePartner
         currentName={staticName2}
         handleRemove={handleRemove}
       />

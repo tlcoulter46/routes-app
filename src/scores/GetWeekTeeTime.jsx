@@ -23,7 +23,7 @@ const GetWeekTeeTimes = ({ loadPlayerData, selectedWeek, setSelectedWeek, select
         <input
           type="number"
           id="tee-time"
-          className="week-input"
+          className="tee-time"
           min="1"
           max="6"
           value={selectedTime}
@@ -31,7 +31,7 @@ const GetWeekTeeTimes = ({ loadPlayerData, selectedWeek, setSelectedWeek, select
           placeholder="1-6"
         />
       </div>
-      <button className="btn load-btn" onClick={() => loadPlayerData()}>
+      <button className="btn load-btn" onClick={loadPlayerData}>
         Load
       </button>
     </div>

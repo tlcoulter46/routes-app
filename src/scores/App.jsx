@@ -20,9 +20,22 @@ function App() {
   const [schedule, setSchedule] = useState([]);
   const [teams, setTeams] = useState([]);
   const [scores, setScores] = useState([]);
-  const [selectedWeek, setSelectedWeek] = useState(1);
-  const [selectedTime, setSelectedTime] = useState(1);
   const [clearTrigger, setClearTrigger] = useState(false);
+  const [selectedWeek, setSelectedWeek] = useState(() => {
+    return sessionStorage.getItem('selectedWeek') || '1';
+  });
+  const [selectedTime, setSelectedTime] = useState(() => {
+    return sessionStorage.getItem('selectedTime') || '1';
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem('selectedTeam', selectedWeek);
+  }, [selectedWeek]);
+
+  useEffect(() => {
+    sessionStorage.setItem('selectedTeam', selectedTime);
+  }, [selectedTime]);
+
 
   // Initialize 4 players with empty scores
   const [players, setPlayers] = useState([
@@ -134,9 +147,13 @@ function App() {
   };
 
   const formatPlayerName = (name) => {
-    const words = name.split(' ');
-    const shortName = words[0] + " " + words[1][0];
-    return shortName;
+    if (name) {
+      const words = name.split(' ');
+      const shortName = words[0] + " " + words[1][0];
+      return shortName;
+    } else {
+      console.log('invalid name');
+    }
   }
 
   const loadPlayerData = () => {
@@ -144,30 +161,33 @@ function App() {
 
     const weekIndex = selectedWeek - 1;
     const timeIndex = selectedTime - 1;
+    console.log(`weekindex ${weekIndex} timeindex ${timeIndex}`);
 
     const matchPlayers = [
-      schedule.weeks[weekIndex].times[timeIndex].team[0],
-      schedule.weeks[weekIndex].times[timeIndex].team[1]
+      schedule?.weeks[weekIndex]?.times[timeIndex]?.team[0],
+      schedule?.weeks[weekIndex]?.times[timeIndex]?.team[1]
     ];
+    console.log(`match players ${matchPlayers}`);
 
     const a = matchPlayers[0] - 1;
     const b = matchPlayers[1] - 1;
 
-    let player1Id = teams[a].players[0];
-    let player2Id = teams[b].players[0];
-    let player3Id = teams[a].players[1];
-    let player4Id = teams[b].players[1];
+    let player1Id = teams[a]?.players[0];
+    let player2Id = teams[b]?.players[0];
+    let player3Id = teams[a]?.players[1];
+    let player4Id = teams[b]?.players[1];
+    console.log(`player1Id ${teams[a]?.players[0]}`);
 
-    let player1 = members.find(member => member.id === player1Id.playerID);
-    let player2 = members.find(member => member.id === player2Id.playerID);
-    let player3 = members.find(member => member.id === player3Id.playerID);
-    let player4 = members.find(member => member.id === player4Id.playerID);
-
+    let player1 = members?.find(member => member?.id === player1Id?.playerID);
+    let player2 = members?.find(member => member?.id === player2Id?.playerID);
+    let player3 = members?.find(member => member?.id === player3Id?.playerID);
+    let player4 = members?.find(member => member?.id === player4Id?.playerID);
+    console.log(`player ${player1}`);
     const newPlayers = [
-      (formatPlayerName(player1.name) || 'Unknown'),
-      (formatPlayerName(player2.name) || 'Unknown'),
-      (formatPlayerName(player3.name) || 'Unknown'),
-      (formatPlayerName(player4.name) || 'Unknown')
+      (formatPlayerName(player1?.name) || 'Unknown'),
+      (formatPlayerName(player2?.name) || 'Unknown'),
+      (formatPlayerName(player3?.name) || 'Unknown'),
+      (formatPlayerName(player4?.name) || 'Unknown')
     ];
 
     console.log("Players:", newPlayers);
