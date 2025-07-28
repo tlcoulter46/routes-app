@@ -5,6 +5,15 @@
       "name": "Gary Bounderant",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
+      "team": true
+    },
+    {
+      "id": "d11a",
+      "name": "Tim Coulter",
+      "phone": "",
+      "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -12,6 +21,7 @@
       "name": "Bill Shepard",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -19,6 +29,7 @@
       "name": "Doug Korbel",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -26,6 +37,7 @@
       "name": "Fran Gulick",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -33,6 +45,7 @@
       "name": "Greg Paulsen",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -40,6 +53,7 @@
       "name": "Jeff Rogers",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -47,6 +61,7 @@
       "name": "Matt Farwell",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -54,6 +69,7 @@
       "name": "Jim Harris",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -61,6 +77,7 @@
       "name": "Jim Christensen",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -68,6 +85,7 @@
       "name": "Steve Wilson",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -75,6 +93,7 @@
       "name": "Curt Bougie",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -82,6 +101,7 @@
       "name": "Bob Roth",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -89,6 +109,7 @@
       "name": "Frank Rausch",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -96,6 +117,7 @@
       "name": "Kevin Johnson",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -103,6 +125,7 @@
       "name": "Bob Eto",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -110,6 +133,7 @@
       "name": "Sam Ferris",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -117,6 +141,7 @@
       "name": "Pete Munoz",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -124,6 +149,7 @@
       "name": "Gary Hetzel",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -131,6 +157,7 @@
       "name": "Tom Nordeck",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -138,6 +165,7 @@
       "name": "John Grosso",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -145,6 +173,7 @@
       "name": "Jim Everhart",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -152,6 +181,7 @@
       "name": "Jeff Vaughn",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -159,6 +189,7 @@
       "name": "Jack Hansen",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": true
     },
     {
@@ -166,25 +197,24 @@
       "name": "Steve Bello",
       "phone": "",
       "email": "",
+      "handicap-index": 1.0,
       "team": false
     },
     {
       "id": "dc49",
       "name": "Peter Pan",
       "phone": "",
-      "email": ""
+      "email": "",
+      "handicap-index": 1.0,
+      "team": false
     },
     {
       "id": "cf2b",
       "name": "Joe Fudd",
       "phone": "",
-      "email": ""
-    },
-    {
-      "id": "7263",
-      "name": "Tim Coulter",
-      "phone": "",
-      "email": ""
+      "email": "",
+      "handicap-index": 1.0,
+      "team": false
     }
   ]
 }

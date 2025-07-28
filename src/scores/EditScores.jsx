@@ -52,7 +52,7 @@ const EditScores = ({ players, setPlayers, clearTrigger }) => {
               <th>Total</th>
             </tr>
             <tr className="par-row">
-              <td>Par</td>
+              <td style={{ textAlign: 'center' }}>Par</td>
               {parValues.map((par, idx) => <td key={idx}>{par}</td>)}
               <td>{totalPar}</td>
             </tr>
@@ -60,6 +60,7 @@ const EditScores = ({ players, setPlayers, clearTrigger }) => {
           <tbody>
             {scores.map((row, playerIdx) => {
               const total = row.reduce((sum, val) => sum + (parseInt(val) || 0), 0);
+              console.log('Player name:', players[playerIdx].name);
               return (
                 <tr key={playerIdx}>
                   <td>{players[playerIdx].name}</td>
@@ -72,7 +73,7 @@ const EditScores = ({ players, setPlayers, clearTrigger }) => {
                         max="10"
                         value={scores[playerIdx][holeIdx]}
                         onChange={e => handleLocalScoreChange(playerIdx, holeIdx, e.target.value)}
-                        readOnly={players[playerIdx].name === "Unknown"}
+                        readOnly={players[playerIdx].name === "Unknown" || players[playerIdx].name === ""}
                       />
                     </td>
                   ))}

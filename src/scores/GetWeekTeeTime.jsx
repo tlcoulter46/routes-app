@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./scores.css";
 
 const GetWeekTeeTimes = ({ loadPlayerData, selectedWeek, setSelectedWeek, selectedTime, setSelectedTime }) => {
@@ -18,12 +18,12 @@ const GetWeekTeeTimes = ({ loadPlayerData, selectedWeek, setSelectedWeek, select
           placeholder="1-12"
         />
       </div>
-      <div className="tee-times">
+      <div className="week-info">
         <label htmlFor="tee-time">Tee Time:</label>
         <input
           type="number"
           id="tee-time"
-          className="tee-time"
+          className="week-input"
           min="1"
           max="6"
           value={selectedTime}

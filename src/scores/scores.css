@@ -29,16 +29,11 @@ body {
   gap: 10px;
 }
 
-.week-input {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
+.week-input,
 .tee-times {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  padding: 5px 10px;
+  /* border: 1px solid #ccc;
+  border-radius: 4px; */
 }
 
 .load-btn {
@@ -95,6 +90,11 @@ body {
   text-align: center;
   background: transparent;
   font-size: 18px;
+}
+
+td:first-child {
+  width: 100px;
+  text-align: left;
 }
 
 .score-input:focus {
