@@ -128,43 +128,42 @@ main {
   flex-direction: column;
 }
 
+
 .member-name {
-  .member-name {
-    justify-content: flex-start;
-    color: rgb(87, 67, 67);
-    font-weight: bold;
-  }
+  justify-content: flex-start;
+  color: rgb(87, 67, 67);
+  font-weight: bold;
+}
 
-  .member-icon {
-    justify-content: flex-end;
+.member-icon {
+  justify-content: flex-end;
 
-  }
+}
 
-  .member:focus {
-    outline: none;
-  }
+.member:focus {
+  outline: none;
+}
 
-  .member:hover {
-    color: red;
-    outline: none;
-  }
+.member:hover {
+  color: red;
+  outline: none;
+}
 
-  .action-icon {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
-    border-radius: 0.25rem;
-    padding: 0.5rem;
-    font-size: 0.75rem;
-    cursor: pointer;
-    outline: none;
-  }
+.action-icon {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  outline: none;
+}
 
-  .icon-container {
-    display: flex;
-    gap: 8px;
-    margin-left: auto;
-  }
+.icon-container {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
 }
 
 .btn {
@@ -220,4 +219,15 @@ main {
 .member:hover {
   color: green;
   outline: none;
+}
+
+.edit-partner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  margin: 0.25rem 0;
+  background-color: white;
+  font-weight: bold;
 }

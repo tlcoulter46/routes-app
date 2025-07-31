@@ -100,36 +100,13 @@ function App() {
     }
   }, [teams, members, selectedTeam, isLoading]);
 
-  // debug code for development - remove
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  };
-
-  const setHasTeam = async (member) => {
-    const patchOptions = {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ hasTeam: true }),
-    };
-
-    const result = await apiRequest(`${API_URL_MEMBERS}`, patchOptions);
-    if (result) {
-      setFetchError(result);
-    } else {
-      // Update local state to reflect the change
-      setMembers(prevMembers =>
-        prevMembers.map(m =>
-          m.id === member.id ? { ...m, hasTeam: true } : m
-        )
-      );
-    }
-  };
-
   const handleRemove = (member) => {
     console.log("Remove member:", member);
     alert("Trying to remove a team member")
+    // accept member from EditPartner
+    // change member.hasTeam == false
+    // change team.players.playerID == null
+    // change currentName == 'Select from Available Names'
   }
 
   const swapTeamMember = async (teamId, newMemberKey) => {
@@ -213,7 +190,6 @@ function App() {
 
   const handleSwapMember = async (member) => {
     console.log("Select member:", member);
-    alert(`Trying to swap ${staticName1} with ${member.id}`);
 
     // Add member to vacant position
     if (staticName1 === 'Select from Available Names') {

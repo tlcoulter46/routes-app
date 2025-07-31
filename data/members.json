@@ -3,7 +3,7 @@
     {
       "id": "573f",
       "name": "Gary Bounderant",
-      "phone": "",
+      "phone": "303-555-1234",
       "email": "",
       "hcpIndex": 1,
       "hasTeam": true
@@ -46,7 +46,7 @@
       "phone": "",
       "email": "",
       "hcpIndex": 1,
-      "hasTeam": true
+      "hasTeam": false
     },
     {
       "id": "aa1d",
@@ -211,14 +211,6 @@
     {
       "id": "cf2b",
       "name": "Joe Fudd",
-      "phone": "",
-      "email": "",
-      "hcpIndex": 1,
-      "hasTeam": false
-    },
-    {
-      "id": "64d2",
-      "name": "Spunge Bob",
       "phone": "",
       "email": "",
       "hcpIndex": 1,
