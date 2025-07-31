@@ -10,8 +10,14 @@ html {
 
 body {
   min-height: 100vh;
-  font-family: 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica,
+    Neue,
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -62,7 +68,7 @@ main {
   background-color: white;
   padding: 8px;
   margin-bottom: 10;
-  font-family: Arial, sans-serif;
+  font-family: Arial; sans-serif;
 } */
 
 /* .player-label {
@@ -88,18 +94,17 @@ main {
   display: flex;
   background-color: #f9e8af;
   padding: 8px;
-  margin-bottom: 10;
+  margin-bottom: 20px;
   font-family: Arial, sans-serif;
   border-bottom: 2px solid #333;
 }
 
 .team-number-label {
   width: 150px;
-  color: blackaliceblue;
+  color: black;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 0;
-  /* display: inline-block; */
 }
 
 .team-number-input {
@@ -124,63 +129,74 @@ main {
 }
 
 .member-name {
-  justify-content: flex-start;
-  color: rgb(87, 67, 67);
-  font-weight: bold;
+  .member-name {
+    justify-content: flex-start;
+    color: rgb(87, 67, 67);
+    font-weight: bold;
+  }
+
+  .member-icon {
+    justify-content: flex-end;
+
+  }
+
+  .member:focus {
+    outline: none;
+  }
+
+  .member:hover {
+    color: red;
+    outline: none;
+  }
+
+  .action-icon {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .icon-container {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+  }
 }
 
-.member-icon {
-  justify-content: flex-end;
-
-}
-
-.member:focus,
-.member:hover {
-  color: red;
-  outline: none;
-}
-
-.action-icon {
-  width: 30px;
-  height: 30px;
-  min-width: 30px;
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  font-size: 0.75rem;
-  cursor: pointer;
-  outline: none;
-}
-
-.icon-container {
+.btn {
+  padding: 0 !important;
+  margin: 0;
   display: flex;
-  gap: 8px;
-  margin-left: auto
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  min-width: auto;
+  width: auto;
+  height: auto;
+  line-height: 1;
 }
 
 .add-icon {
   font-size: 24px;
-  margin-left: 10px;
+  margin-left: 2px;
   background-color: white;
   color: green;
 }
 
-.add-icon:focus,
-.add-icon:hover {
-  background-color: rgb(30, 194, 82);
-}
-
 .remove-icon {
   font-size: 24px;
-  margin-left: 10px;
   background-color: white;
   color: rgb(247, 8, 8);
+  display: block;
+  margin: 0;
+  padding: 0;
 }
-
-.remove-icon:focus,
-.remove-icon:hover {
-  background-color: rgb(249, 117, 126);
-}
-
 
 .member {
   display: flex;
@@ -188,14 +204,19 @@ main {
   align-items: center;
   padding: 0.5rem 0 0.5rem 0.5rem;
   margin: 0.25rem 0;
-  background-color: #eee;
+  background-color: #d7d5d5;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .member:first-child {
   margin: 0;
 }
 
-.member:focus,
+.member:focus {
+  outline: none;
+}
+
 .member:hover {
   color: green;
   outline: none;

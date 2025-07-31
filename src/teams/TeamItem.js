@@ -1,20 +1,29 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon
+import React, { useState } from 'react';
 import "./teams.css";
 
-const TeamItem = ({ key, member, handleAdd }) => {
-  return (
-    <li className="member">
-      <div style={{ fontWeight: 'bold', fontSize: '16px' }}>
-        {member.name}
-      </div>
+const TeamItem = ({ member, handleSwapMember }) => {
+  const [isHovered, setIsHovered] = useState(false);
 
-      <div className='icon-container'>
-        <FontAwesomeIcon
-          icon={faPlusSquare}
-          className='add-icon'
-          onClick={handleAdd} />
-      </div>
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handleMouseDown = () => {
+    setIsHovered(false);
+    handleSwapMember(member);
+  };
+
+  return (
+    <li className='member'
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseDown={handleMouseDown}
+    >
+      {member.name}
     </li >
   );
 }

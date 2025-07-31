@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import "./teams.css";
 import fetchData from '../util/fetchData';
 import SelectTeam from './SelectTeam';
-import RemovePartner from './RemovePartner';
+import EditPartner from './EditPartner';
 import Header from '../util/Header';
 import TeamList from './TeamList';
+import apiRequest from '../util/apiRequest';
 
 function App() {
   // API URLs
@@ -16,8 +17,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [members, setMembers] = useState([]);
   const [teams, setTeams] = useState([]);
-  const [search1, setSearch1] = useState('');
-  const [search2, setSearch2] = useState('');
   const [staticName1, setStaticName1] = useState('');
   const [staticName2, setStaticName2] = useState('');
   const [selectedTeam, setSelectedTeam] = useState(() => {
@@ -70,7 +69,7 @@ function App() {
 
     console.log("Selected team:", selectedTeam, typeof selectedTeam);
     console.log("Available team IDs:", teams.map(team => ({ id: team.id, type: typeof team.id })));
-    const foundTeam = teams.find(teams => teams.id === selectedTeam);
+    const foundTeam = teams.find(team => team.id == selectedTeam);
     console.log('Found team:', foundTeam);
 
     // Use foundTeam to get the players
@@ -106,27 +105,122 @@ function App() {
     e.preventDefault();
   };
 
-  const refreshMembers = async () => {
-    try {
-      const response = await fetchData(API_URL_MEMBERS);
-      if (!response.ok) throw Error('Failed to fetch members data');
-      const result = await response.json();
-      setMembers(result);
-    } catch (err) {
-      setFetchError(err.message);
+  const setHasTeam = async (member) => {
+    const patchOptions = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ hasTeam: true }),
+    };
+
+    const result = await apiRequest(`${API_URL_MEMBERS}`, patchOptions);
+    if (result) {
+      setFetchError(result);
+    } else {
+      // Update local state to reflect the change
+      setMembers(prevMembers =>
+        prevMembers.map(m =>
+          m.id === member.id ? { ...m, hasTeam: true } : m
+        )
+      );
     }
   };
 
-  const handleAdd = (member) => {
-    // {id: '9baf', name: 'Steve Bello', phone: '', email: '', team: false}
-    console.log("Member:", member);
-    alert("Trying to add a team member")
+  const handleRemove = (member) => {
+    console.log("Remove member:", member);
+    alert("Trying to remove a team member")
   }
 
-  const handleRemove = (member) => {
-    // {id: '9baf', name: 'Steve Bello', phone: '', email: '', team: false}
-    console.log("Member:", member);
-    alert("Trying to remove a team member")
+  const swapTeamMember = async (teamId, newMemberKey) => {
+    try {
+      console.log('swapTeamMember props:', teamId, newMemberKey);
+      // Find the target team
+      const targetTeam = teams.find(team => team.id == teamId);
+      if (!targetTeam) {
+        setFetchError('Team not found');
+        return;
+      }
+
+      // Find first available slot (null playerID)
+      const players = [...targetTeam.players];
+      const availableSlot = players.findIndex(player => player.playerID === null);
+
+      if (availableSlot === -1) {
+        setFetchError('No available slots in team');
+        return;
+      }
+
+      // Update the first available slot
+      players[availableSlot] = { playerID: newMemberKey };
+
+      // Create updated team object
+      const updatedTeam = {
+        ...targetTeam,
+        players: players
+      };
+
+      console.log('Adding member to slot:', availableSlot, 'Member:', newMemberKey);
+
+      // Update team via PUT request
+      const teamPutOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedTeam)
+      };
+
+      const teamResult = await apiRequest(`${API_URL_TEAMS}/${teamId}`, teamPutOptions);
+      if (teamResult) {
+        setFetchError(`Failed to update team: ${teamResult}`);
+        return;
+      }
+
+      // Set new member's hasTeam to true
+      const memberResult = await apiRequest(`${API_URL_MEMBERS}/${newMemberKey}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ hasTeam: true })
+      });
+
+      if (memberResult) {
+        setFetchError(`Failed to update member: ${memberResult}`);
+        return;
+      }
+
+      // Update local state
+      setTeams(prevTeams =>
+        prevTeams.map(team =>
+          team.id == teamId ? updatedTeam : team
+        )
+      );
+
+      setMembers(prevMembers =>
+        prevMembers.map(member => {
+          if (member.id === newMemberKey) {
+            return { ...member, hasTeam: true };
+          }
+          return member;
+        })
+      );
+
+      console.log('Member added successfully to first available slot');
+
+    } catch (error) {
+      console.error('Error adding team member:', error);
+      setFetchError(`Failed to add member: ${error.message}`);
+    }
+  };
+
+  const handleSwapMember = async (member) => {
+    console.log("Select member:", member);
+    alert(`Trying to swap ${staticName1} with ${member.id}`);
+
+    // Add member to vacant position
+    if (staticName1 === 'Select from Available Names') {
+      await swapTeamMember(selectedTeam, member.id, 1);
+    } else {
+      await swapTeamMember(selectedTeam, member.id, 2);
+    }
   }
 
   if (isLoading) return <div>Loading...</div>;
@@ -141,39 +235,29 @@ function App() {
         setSelectedTeam={setSelectedTeam}
       />
 
-      <RemovePartner
+      <EditPartner
         currentName={staticName1}
         handleRemove={handleRemove}
       />
 
-      <RemovePartner
+      <EditPartner
         currentName={staticName2}
         handleRemove={handleRemove}
       />
 
       <main>
-        <h3>Available Names</h3>
-
         {isLoading && <p>Loading Members...</p>}
         {fetchError && <p style={{ color: "red" }}>{`Error: ${fetchError}`}</p>}
+
         {!fetchError && !isLoading &&
-          <TeamList
-            members={members.filter(member => {
-              const name = member.name.toLowerCase();
-              const matchesSearch1 = search1 === '' || name.includes(search1.toLowerCase());
-              const matchesSearch2 = search2 === '' || name.includes(search2.toLowerCase());
-
-              // Check if member is already assigned to any team
-              const isAssignedToTeam = teams.some(team =>
-                team.players && team.players.some(player => player.playerID === member.id)
-              );
-
-              // Show member only if it matches ALL active searches AND is not assigned to a team
-              return matchesSearch1 && matchesSearch2 && !isAssignedToTeam;
-            })}
-
-            handleAdd={handleAdd}
-          />
+          (staticName1 === 'Select from Available Names' || staticName2 === 'Select from Available Names') &&
+          <>
+            <h3>Available Names</h3>
+            <TeamList
+              members={members.filter(member => member.hasTeam === false)}
+              handleSwapMember={handleSwapMember}
+            />
+          </>
         }
       </main>
     </div>

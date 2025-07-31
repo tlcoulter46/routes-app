@@ -5,216 +5,232 @@
       "name": "Gary Bounderant",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "d11a",
       "name": "Tim Coulter",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "694f",
       "name": "Bill Shepard",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "8968",
       "name": "Doug Korbel",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "2a54",
       "name": "Fran Gulick",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "1a16",
       "name": "Greg Paulsen",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "aa1d",
       "name": "Jeff Rogers",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "d2eb",
       "name": "Matt Farwell",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "354c",
       "name": "Jim Harris",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "26cd",
       "name": "Jim Christensen",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "4417",
       "name": "Steve Wilson",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "90e3",
       "name": "Curt Bougie",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "473d",
       "name": "Bob Roth",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "98c3",
       "name": "Frank Rausch",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "072c",
       "name": "Kevin Johnson",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "01ca",
       "name": "Bob Eto",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "1bd6",
       "name": "Sam Ferris",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "ea4c",
       "name": "Pete Munoz",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "1d9b",
       "name": "Gary Hetzel",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "db84",
       "name": "Tom Nordeck",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "755a",
       "name": "John Grosso",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "7588",
       "name": "Jim Everhart",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "c24d",
       "name": "Jeff Vaughn",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "85a0",
       "name": "Jack Hansen",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": true
+      "hcpIndex": 1,
+      "hasTeam": true
     },
     {
       "id": "9baf",
       "name": "Steve Bello",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": false
+      "hcpIndex": 1,
+      "hasTeam": false
     },
     {
       "id": "dc49",
       "name": "Peter Pan",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": false
+      "hcpIndex": 1,
+      "hasTeam": false
     },
     {
       "id": "cf2b",
       "name": "Joe Fudd",
       "phone": "",
       "email": "",
-      "handicap-index": 1.0,
-      "team": false
+      "hcpIndex": 1,
+      "hasTeam": false
+    },
+    {
+      "id": "64d2",
+      "name": "Spunge Bob",
+      "phone": "",
+      "email": "",
+      "hcpIndex": 1,
+      "hasTeam": false
+    },
+    {
+      "id": "c80b",
+      "name": "Dustin Hoffman",
+      "phone": "",
+      "email": "",
+      "hcpIndex": 1,
+      "hasTeam": false
     }
   ]
 }

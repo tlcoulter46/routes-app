@@ -44,7 +44,14 @@ function App() {
 
   const addMember = async (member) => {
     const id = generateMemberId();
-    const myNewMember = { id, name: member, phone: "", email: "" };
+    const myNewMember = {
+      id,
+      name: member,
+      phone: "",
+      email: "",
+      "hcpIndex": 1.0,
+      "hasTeam": false
+    };
     const listMembers = [...members, myNewMember];
     setMembers(listMembers);
 
@@ -127,7 +134,7 @@ function App() {
         {fetchError && <p style={{ color: "red" }}>{`Error: ${fetchError}`}</p>}
         {!fetchError && !isLoading &&
           <ListMembers
-            members={members.filter(member => ((member.name).toLowerCase()).includes(search.toLowerCase()))}
+            members={members}
             handleEdit={handleEdit}
             handleDelete={handleDelete}
           />}

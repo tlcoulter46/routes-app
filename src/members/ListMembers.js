@@ -5,9 +5,10 @@ const MemberList = ({ members, handleEdit, handleDelete }) => {
     <ul style={{ listStyle: 'none', padding: '0 0.25rem 0.25rem' }}>
       {members.map((member) => (
         <LineMember
+          key={member.id}
           member={member}
-          handleEdit={handleEdit}
-          handleDelete={handleDelete}
+          handleEdit={() => handleEdit(member)}
+          handleDelete={() => handleDelete(member.id)}
         />
       ))}
     </ul>

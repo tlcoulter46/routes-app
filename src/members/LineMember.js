@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon
 import './members.css';
 
-const LineMember = ({ key, member, handleEdit, handleDelete }) => {
+const LineMember = ({ member, handleEdit, handleDelete }) => {
   return (
     <li className='member'>
       <div style={{ fontWeight: 'bold', fontSize: '16px' }}>

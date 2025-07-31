@@ -3,6 +3,7 @@ import { FaBeer, FaSave, FaTimes } from 'react-icons/fa';
 import './editMember.css';
 
 const EditMember = ({ member, onSave, onCancel }) => {
+  console.log('EditMember props:', member);
   const [formData, setFormData] = useState({
     name: member.name || '',
     phone: member.phone || '',
