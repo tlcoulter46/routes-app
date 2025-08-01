@@ -1,172 +1,190 @@
 {
   "members": [
     {
-      "name": "Tim Coulter",
-      "phone": "303-829-6583",
-      "email": "tim.l.coulter@gmail.com",
-      "handicap": "19",
-      "id": "d11a"
-    },
-    {
+      "id": "573f",
       "name": "Gary Bounderant",
-      "phone": "303-868-9046",
-      "email": "gbondurant53@gmail.com",
-      "handicap": "12",
-      "id": "573f"
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
+      "id": "694f",
       "name": "Bill Shepard",
       "phone": "",
       "email": "",
-      "handicap": "0",
-      "id": "694f"
+      "team": true
     },
     {
+      "id": "8968",
       "name": "Doug Korbel",
       "phone": "",
       "email": "",
-      "handicap": "0",
-      "id": "8968"
+      "team": true
     },
     {
-      "name": "Player 1",
-      "phone": "303-555-0001",
-      "email": "player1@golf.com",
-      "handicap": "8",
-      "id": "2a54"
+      "id": "2a54",
+      "name": "Fran Gulick",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 2",
-      "phone": "303-555-0002",
-      "email": "player2@golf.com",
-      "handicap": "15",
-      "id": "1a16"
+      "id": "1a16",
+      "name": "Greg Paulsen",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 3",
-      "phone": "303-555-0003",
-      "email": "player3@golf.com",
-      "handicap": "22",
-      "id": "aa1d"
+      "id": "aa1d",
+      "name": "Jeff Rogers",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 4",
-      "phone": "303-555-0004",
-      "email": "player4@golf.com",
-      "handicap": "6",
-      "id": "d2eb"
+      "id": "d2eb",
+      "name": "Matt Farwell",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 5",
-      "phone": "303-555-0005",
-      "email": "player5@golf.com",
-      "handicap": "18",
-      "id": "354c"
+      "id": "354c",
+      "name": "Jim Harris",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 6",
-      "phone": "303-555-0006",
-      "email": "player6@golf.com",
-      "handicap": "11",
-      "id": "26cd"
+      "id": "26cd",
+      "name": "Jim Christensen",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 7",
-      "phone": "303-555-0007",
-      "email": "player7@golf.com",
-      "handicap": "9",
-      "id": "4417"
+      "id": "4417",
+      "name": "Steve Wilson",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 8",
-      "phone": "303-555-0008",
-      "email": "player8@golf.com",
-      "handicap": "14",
-      "id": "90e3"
+      "id": "90e3",
+      "name": "Curt Bougie",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 9",
-      "phone": "303-555-0009",
-      "email": "player9@golf.com",
-      "handicap": "20",
-      "id": "473d"
+      "id": "473d",
+      "name": "Bob Roth",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 10",
-      "phone": "303-555-0010",
-      "email": "player10@golf.com",
-      "handicap": "3",
-      "id": "98c3"
+      "id": "98c3",
+      "name": "Frank Rausch",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 11",
-      "phone": "303-555-0011",
-      "email": "player11@golf.com",
-      "handicap": "16",
-      "id": "072c"
+      "id": "072c",
+      "name": "Kevin Johnson",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 12",
-      "phone": "303-555-0012",
-      "email": "player12@golf.com",
-      "handicap": "7",
-      "id": "01ca"
+      "id": "01ca",
+      "name": "Bob Eto",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 13",
-      "phone": "303-555-0013",
-      "email": "player13@golf.com",
-      "handicap": "13",
-      "id": "1bd6"
+      "id": "1bd6",
+      "name": "Sam Ferris",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 14",
-      "phone": "303-555-0014",
-      "email": "player14@golf.com",
-      "handicap": "25",
-      "id": "ea4c"
+      "id": "ea4c",
+      "name": "Pete Munoz",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 15",
-      "phone": "303-555-0015",
-      "email": "player15@golf.com",
-      "handicap": "4",
-      "id": "1d9b"
+      "id": "1d9b",
+      "name": "Gary Hetzel",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 16",
-      "phone": "303-555-0016",
-      "email": "player16@golf.com",
-      "handicap": "17",
-      "id": "db84"
+      "id": "db84",
+      "name": "Tom Nordeck",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 17",
-      "phone": "303-555-0017",
-      "email": "player17@golf.com",
-      "handicap": "10",
-      "id": "755a"
+      "id": "755a",
+      "name": "John Grosso",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 18",
-      "phone": "303-555-0018",
-      "email": "player18@golf.com",
-      "handicap": "21",
-      "id": "e355"
+      "id": "7588",
+      "name": "Jim Everhart",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 19",
-      "phone": "303-555-0019",
-      "email": "player19@golf.com",
-      "handicap": "5",
-      "id": "8164"
+      "id": "c24d",
+      "name": "Jeff Vaughn",
+      "phone": "",
+      "email": "",
+      "team": true
     },
     {
-      "name": "Player 20",
-      "phone": "303-555-0020",
-      "email": "player20@golf.com",
-      "handicap": "12",
-      "id": "09dc"
+      "id": "85a0",
+      "name": "Jack Hansen",
+      "phone": "",
+      "email": "",
+      "team": true
+    },
+    {
+      "id": "9baf",
+      "name": "Steve Bello",
+      "phone": "",
+      "email": "",
+      "team": false
+    },
+    {
+      "id": "dc49",
+      "name": "Peter Pan",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "id": "cf2b",
+      "name": "Joe Fudd",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "id": "7263",
+      "name": "Tim Coulter",
+      "phone": "",
+      "email": ""
     }
   ]
 }

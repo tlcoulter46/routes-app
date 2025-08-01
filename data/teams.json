@@ -1,158 +1,134 @@
 {
   "teams": [
     {
-      "team": 1,
+      "id": 1,
       "players": [
         {
-          "name": "Player 1",
-          "handicap": "8"
+          "playerID": ""
         },
         {
-          "name": "Player 15",
-          "handicap": "4"
+          "playerID": "694f"
         }
       ]
     },
     {
-      "team": 2,
+      "id": 2,
       "players": [
         {
-          "name": "Bill Shepard",
-          "handicap": "9"
+          "playerID": "2a54"
         },
         {
-          "name": "Doug Korbel",
-          "handicap": "10"
+          "playerID": "1a16"
         }
       ]
     },
     {
-      "team": 3,
+      "id": 3,
       "players": [
         {
-          "name": "Player 2",
-          "handicap": "15"
+          "playerID": "aa1d"
         },
         {
-          "name": "Player 14",
-          "handicap": "25"
+          "playerID": "d2eb"
         }
       ]
     },
     {
-      "team": 4,
+      "id": 4,
       "players": [
         {
-          "name": "Player 3",
-          "handicap": "22"
+          "playerID": "354c"
         },
         {
-          "name": "Player 13",
-          "handicap": "13"
+          "playerID": "26cd"
         }
       ]
     },
     {
-      "team": 5,
+      "id": 5,
       "players": [
         {
-          "name": "Player 4",
-          "handicap": "6"
+          "playerID": "4417"
         },
         {
-          "name": "Player 12",
-          "handicap": "7"
+          "playerID": "90e3"
         }
       ]
     },
     {
-      "team": 6,
+      "id": 6,
       "players": [
         {
-          "name": "Player 5",
-          "handicap": "18"
+          "playerID": "473d"
         },
         {
-          "name": "Player 11",
-          "handicap": "16"
+          "playerID": "98c3"
         }
       ]
     },
     {
-      "team": 7,
+      "id": 7,
       "players": [
         {
-          "name": "Player 10",
-          "handicap": "3"
+          "playerID": "072c"
         },
         {
-          "name": "Player 16",
-          "handicap": "17"
+          "playerID": "01ca"
         }
       ]
     },
     {
-      "team": 8,
+      "id": 8,
       "players": [
         {
-          "name": "Player 9",
-          "handicap": "20"
+          "playerID": "573f"
         },
         {
-          "name": "Player 17",
-          "handicap": "10"
+          "playerID": "8968"
         }
       ]
     },
     {
-      "team": 9,
+      "id": 9,
       "players": [
         {
-          "name": "Player 8",
-          "handicap": "14"
+          "playerID": "1bd6"
         },
         {
-          "name": "Player 18",
-          "handicap": "21"
+          "playerID": "1d9b"
         }
       ]
     },
     {
-      "team": 10,
+      "id": 10,
       "players": [
         {
-          "name": "Player 7",
-          "handicap": "9"
+          "playerID": "ea4c"
         },
         {
-          "name": "Player 19",
-          "handicap": "5"
+          "playerID": "db84"
         }
       ]
     },
     {
-      "team": 11,
+      "id": 11,
       "players": [
         {
-          "name": "Player 6",
-          "handicap": "11"
+          "playerID": "755a"
         },
         {
-          "name": "Player 20",
-          "handicap": "12"
+          "playerID": "7588"
         }
       ]
     },
     {
-      "team": 12,
+      "id": 12,
       "players": [
         {
-          "name": "Tim Coulter",
-          "handicap": "19"
+          "playerID": "c24d"
         },
         {
-          "name": "Gary Bounderant",
-          "handicap": "12"
+          "playerID": "85a0"
         }
       ]
     }
