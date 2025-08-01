@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "json-server": "^1.0.0-beta.3",
     "react-router-dom": "^7.6.2"
   }
 }
