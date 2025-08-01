@@ -24,7 +24,8 @@
     "members": "json-server data/members.json --port 3500",
     "schedule": "json-server data/schedule.json --port 3600",
     "teams": "json-server data/teams.json --port 3700",
-    "scores": "json-server data/scores.json --port 3800"
+    "scores": "json-server data/scores.json --port 3800",
+    "course": "json-server data/course.json --port 3900"
   },
   "eslintConfig": {
     "extends": [
