@@ -37,6 +37,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 8px;
 }
 
 main {
@@ -92,10 +93,6 @@ ul li::before {
   cursor: pointer;
   margin-right: 0.5rem;
 }
-
-/* .member input[type="checkbox"]:focus+label {
-  text-decoration: underline;
-} */
 
 .member>label {
   font-size: 1.0rem;
@@ -168,7 +165,7 @@ button:hover {
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  margin: 0.25rem 0 0;
+  margin: 0.25rem 0 0.5rem;
   padding: 0 0.5rem 0.25rem;
   border-bottom: 1px solid #eee;
 }

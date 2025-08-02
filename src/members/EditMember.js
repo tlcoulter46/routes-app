@@ -7,8 +7,7 @@ const EditMember = ({ member, onSave, onCancel }) => {
     name: member.name || '',
     phone: member.phone || '',
     email: member.email || '',
-    team: member.team || '',
-    handicap: member.handicap || ''
+    handicap: member.handicap || 0   
   });
 
   const [errors, setErrors] = useState({});
@@ -29,6 +28,11 @@ const EditMember = ({ member, onSave, onCancel }) => {
     }
   };
 
+  const handleWheel = (e) => {
+    // Prevent page scrolling when using mouse wheel on number input
+    e.stopPropagation();
+  };
+
   const validateForm = () => {
     const newErrors = {};
 
@@ -44,25 +48,30 @@ const EditMember = ({ member, onSave, onCancel }) => {
       newErrors.email = 'Please enter a valid email address';
     }
 
-    // if (formData.handicap && !isValidHandicap(formData.handicap)) {
-    //   newErrors.phone = 'Please enter a valid handicap';
-    // }
+    if (formData.handicap && !isValidHandicap(formData.handicap)) {
+      newErrors.handicap = 'Please enter a valid handicap';
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const isValidPhone = (phone) => {
+ const isValidPhone = (phone) => {
     const phoneRegex = /^[\d\s\-()+ ]+$/;
     return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 10;
-  };
+   };
 
-  const isValidEmail = (email) => {
+ const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  const handleSubmit = (e) => {
+const isValidHandicap = (handicap) => {
+    const numHandicap = parseFloat(handicap);
+    return !isNaN(numHandicap) && numHandicap >= -10 && numHandicap <= 54;
+  };
+
+    const handleSubmit = (e) => {
     e.preventDefault();
 
     if (validateForm()) {
@@ -132,37 +141,21 @@ const EditMember = ({ member, onSave, onCancel }) => {
 
           <div className="form-field">
             <label className="form-label">
-              Team
-            </label>
-            <div className="form-container">
-              <input
-                type="number"
-                name="team"
-                value={formData.team}
-                onChange={handleChange}
-                className="edit-member-input"
-                placeholder="Team name"
-                min="1"
-                max="12"
-                step="1"
-              />
-            </div>
-
-            <label className="form-label">
               Handicap
             </label>
             <div className="form-container">
               <input
                 type="number"
                 name="handicap"
-                value={formData.handicap || ''}
+                value={formData.handicap}
                 onChange={handleChange}
+                onWheel={handleWheel}
                 className="edit-member-input"
-                placeholder="0"
                 min="-10"
                 max="54"
                 step="1"
               />
+              {errors.handicap && <span className="error-text">{errors.handicap}</span>}
             </div>
           </div>
 

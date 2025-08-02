@@ -1,6 +1,6 @@
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 
-const LinePlayer = ({ member, handleCheck, handleDelete, handleEdit }) => {
+const LinePlayer = ({ member, handleDelete, handleEdit }) => {
   return (
     <li className="member" style={{
       display: 'flex',
@@ -23,6 +23,11 @@ const LinePlayer = ({ member, handleCheck, handleDelete, handleEdit }) => {
             ✉️ {member.email}
           </div>
         )}
+        {/* {member.handicap && (
+          <div style={{ fontSize: '14px', color: '#666' }}>
+            ♿ {member.handicap}
+          </div>
+        )} */}
       </div>
       <div style={{ display: 'flex', gap: '8px' }}>
         <FaEdit

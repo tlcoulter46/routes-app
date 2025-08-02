@@ -28,16 +28,6 @@
   flex: none;
 }
 
-.edit-member-input[type="number"]::-webkit-outer-spin-button,
-.edit-member-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.edit-member-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
 /* Modal Overlay */
 .modal-overlay {
   position: fixed;
@@ -50,6 +40,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  overflow: hidden;
 }
 
 /* Modal Content */
